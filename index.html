@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subject Percentage Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        input {
+            width: 40px;
+        }
+        .result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>FOIZLAR CHIQARUVCHI DASTUR</h1>
+        
+        <div>
+            <label for="motherLanguage">Ona tili (20):</label>
+            <input type="number" id="motherLanguage" min="0" max="20">
+            <div class="result" id="motherLanguageResult"></div>
+        </div>
+
+        <div>
+            <label for="english">Ingliz tili (15):</label>
+            <input type="number" id="english" min="0" max="15">
+            <div class="result" id="englishResult"></div>
+        </div>
+
+        <div>
+            <label for="history">Tarix (18):</label>
+            <input type="number" id="history" min="0" max="18">
+            <div class="result" id="historyResult"></div>
+        </div>
+
+        <div>
+            <label for="allSubjects">Umumiy (53):</label>
+            <input type="number" id="allSubjects" min="0" max="53">
+            <div class="result" id="allSubjectsResult"></div>
+        </div>
+
+        <button onclick="calculatePercentages()">Hisobla</button>
+    </div>
+
+    <script>
+        function calculatePercentages() {
+            const motherLanguageInput = document.getElementById("motherLanguage");
+            const englishInput = document.getElementById("english");
+            const historyInput = document.getElementById("history");
+            const allSubjectsInput = document.getElementById("allSubjects");
+
+            const motherLanguageResult = document.getElementById("motherLanguageResult");
+            const englishResult = document.getElementById("englishResult");
+            const historyResult = document.getElementById("historyResult");
+            const allSubjectsResult = document.getElementById("allSubjectsResult");
+
+            const motherLanguageScore = parseInt(motherLanguageInput.value);
+            const englishScore = parseInt(englishInput.value);
+            const historyScore = parseInt(historyInput.value);
+            const allSubjectsScore = parseInt(allSubjectsInput.value);
+
+            const motherLanguagePercentage = ((20 - motherLanguageScore) / 20) * 100;
+            const englishPercentage = ((15 - englishScore) / 15) * 100;
+            const historyPercentage = ((18 - historyScore) / 18) * 100;
+            const allSubjectsPercentage = ((53 - allSubjectsScore) / 53) * 100;
+
+            motherLanguageResult.textContent = `ONA TILI: ${motherLanguagePercentage.toFixed(2)}%`;
+            englishResult.textContent = `INGLIZ TILI: ${englishPercentage.toFixed(2)}%`;
+            historyResult.textContent = `TARIX: ${historyPercentage.toFixed(2)}%`;
+            allSubjectsResult.textContent = `UMUMIY: ${allSubjectsPercentage.toFixed(2)}%`;
+        }
+    </script>
+</body>
+</html>
